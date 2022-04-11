@@ -21,9 +21,9 @@ class EmployeeCreateSerializer(EmployeeSerializer):
     
     def create(self, validate_data):
         validate_data['Department'] = Departments.objects.get(id=validate_data['Department'])
-        print("Validated data--> ",validate_data)
+        #print("Validated data--> ",validate_data)
         dept_detail = super().create(validate_data)
-        print(dept_detail.Department)
+        #print(dept_detail.Department)
         return dept_detail
     
 
