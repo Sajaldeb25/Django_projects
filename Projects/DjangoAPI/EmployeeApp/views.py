@@ -58,7 +58,7 @@ class EmployeeView(APIView):
                 if serializer.is_valid():
                     serializer.save()
                     details_serializer= EmployeeSerializer(serializer.data) 
-                    return Response(details_serializer.data, status=status.HTTP_201_CREATED)
+                    return Response(serializer.data, status=status.HTTP_201_CREATED)
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Departments.DoesNotExist:
             res = {'msg': 'Dept does not exist.'}

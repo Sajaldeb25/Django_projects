@@ -6,7 +6,7 @@ from django.db import models
 class Departments(models.Model):
     #DepartmentID = models.AutoField(primary_key=True)
     DepartmanetName = models.CharField(max_length=100)
-
+    #DepartmanetName
     def __str__(self):
         return str(self.id)
 
