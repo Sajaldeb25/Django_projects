@@ -20,11 +20,12 @@ class EmployeeSerializer(serializers.ModelSerializer):
 class EmployeeCreateSerializer(EmployeeSerializer):
     Department = serializers.CharField()
 
-    def create(self, validate_data):
+    def create(self,instance, validate_data):
         validate_data['Department'] = Departments.objects.get(id=validate_data['Department'])
-        print("Validated data--> ",validate_data)
+        #print("Validated data--> ",validate_data)
+        print(validate_data.instance.id)
         dept_detail = super().create(validate_data)
-        print(dept_detail.Department)
+        #print(dept_detail.Department)
         return dept_detail
     
 
